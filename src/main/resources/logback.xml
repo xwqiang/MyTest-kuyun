@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<configuration scan="true" scanPeriod="60 seconds" debug="true">  
+     <property name="LOG_HOME" value="/ky/logs/cards" />
+    
+      
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">  
+        <Encoding>UTF-8</Encoding>  
+        <layout class="ch.qos.logback.classic.PatternLayout">  
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>  
+        </layout>  
+    </appender>  
+      
+    <appender name="cardsinfo" class="ch.qos.logback.core.rolling.RollingFileAppender">  
+        <Encoding>UTF-8</Encoding>  
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+            <FileNamePattern>${LOG_HOME}/cardsinfo.%d{yyyy-MM-dd}.log</FileNamePattern>  
+            <MaxHistory>30</MaxHistory>  
+        </rollingPolicy>  
+        <layout class="ch.qos.logback.classic.PatternLayout">  
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>  
+        </layout>  
+    </appender>  
+    <logger name="cardsinfo" additivity="false" level="INFO">
+		<appender-ref ref="cardsinfo" />
+	</logger>
+	
+	 <appender name="gamelife" class="ch.qos.logback.core.rolling.RollingFileAppender">  
+        <Encoding>UTF-8</Encoding>  
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+            <FileNamePattern>${LOG_HOME}/gamelife.%d{yyyy-MM-dd}.log</FileNamePattern>  
+            <MaxHistory>30</MaxHistory>  
+        </rollingPolicy>  
+        <layout class="ch.qos.logback.classic.PatternLayout">  
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>  
+        </layout>  
+    </appender>  
+    <logger name="gamelife" additivity="false" level="INFO">
+		<appender-ref ref="gamelife" />
+	</logger>
+  
+    <appender name="cardserror" class="ch.qos.logback.core.rolling.RollingFileAppender"> 
+    	 <Encoding>UTF-8</Encoding>  
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+            <FileNamePattern>${LOG_HOME}/cardserror.%d{yyyy-MM-dd}.log</FileNamePattern>  
+        </rollingPolicy>  
+        <layout class="ch.qos.logback.classic.PatternLayout">  
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}|%msg%n</pattern>  
+        </layout> 
+    </appender>
+    <logger name="cardserror" additivity="false" level="INFO">
+		<appender-ref ref="cardserror" />
+	</logger>
+    
+    <appender name="accessinfo" class="ch.qos.logback.core.rolling.RollingFileAppender"> 
+    	 <Encoding>UTF-8</Encoding>  
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+            <FileNamePattern>${LOG_HOME}/accessinfo.%d{yyyy-MM-dd}.log</FileNamePattern>  
+        </rollingPolicy>  
+        <layout class="ch.qos.logback.classic.PatternLayout">  
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}|%msg%n</pattern>  
+        </layout> 
+    </appender>
+    <logger name="accessinfo" additivity="false" level="INFO">
+		<appender-ref ref="accessinfo" />
+	</logger>
+    
+    <appender name="pluginInfo" class="ch.qos.logback.core.rolling.RollingFileAppender"> 
+    	 <Encoding>UTF-8</Encoding>  
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+            <FileNamePattern>${LOG_HOME}/pluginInfo.%d{yyyy-MM-dd}.log</FileNamePattern>  
+        </rollingPolicy>  
+        <layout class="ch.qos.logback.classic.PatternLayout">  
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}|%msg%n</pattern>  
+        </layout> 
+    </appender>	
+    <logger name="pluginInfo" additivity="false" level="INFO">
+		<appender-ref ref="pluginInfo" />
+	</logger>
+   <appender name="luckdraw" class="ch.qos.logback.core.rolling.RollingFileAppender">  
+        <Encoding>UTF-8</Encoding>  
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+            <FileNamePattern>${LOG_HOME}/luckdraw/luckdraw.%d{yyyy-MM-dd}.log</FileNamePattern>  
+            <MaxHistory>30</MaxHistory>  
+        </rollingPolicy>  
+        <layout class="ch.qos.logback.classic.PatternLayout">  
+            <pattern>%msg%n</pattern>  
+        </layout>  
+    </appender>  
+    <logger name="luckdraw" additivity="false" level="INFO">
+		<appender-ref ref="luckdraw" />
+	</logger>
+    <root level="INFO">  
+        <appender-ref ref="STDOUT" />  
+    </root>  
+</configuration>  
