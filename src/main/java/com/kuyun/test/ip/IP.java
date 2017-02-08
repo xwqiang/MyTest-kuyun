@@ -29,6 +29,10 @@ class IP {
         return str.toString();
     }
 
+    /**
+     *
+     *http://www.ipip.net/ 下载ip文件
+     */
     public static void main(String[] args){
         String path = IP.class.getClassLoader().getResource("17monipdb.dat").getPath();
         System.out.println(path);
